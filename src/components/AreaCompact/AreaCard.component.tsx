@@ -2,7 +2,7 @@ import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
 import { getStatusLabel } from '../../utils';
 import GetPriorityIcon from '../../GetPriorityIcon';
-import { CiCircleMinus } from "react-icons/ci";
+import { CiCircleMinus } from 'react-icons/ci';
 
 const getNewStatus = (currentStatus: Status) => {
   switch (currentStatus) {
@@ -34,18 +34,29 @@ interface AreaCardProps {
 const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
   const handleToggleStatus = (area: Area) => {
     setLifeAreas((prev) => {
-      const otherAreas = prev.filter((a) => a.id !== area.id);
-      return [...otherAreas, { ...area, status: getNewStatus(area.status) }];
+      const newAreas: Area[] = [];
+      for (const a of prev) {
+        if (a.id === area.id) {
+          newAreas.push({ ...a, status: getNewStatus(a.status) });
+        } else {
+          newAreas.push(a);
+        }
+      }
+      return newAreas;
     });
   };
 
   const handleTogglePriority = (area: Area) => {
     setLifeAreas((prev) => {
-      const otherAreas = prev.filter((a) => a.id !== area.id);
-      return [
-        ...otherAreas,
-        { ...area, priority: getNewPriority(area.priority) },
-      ];
+      const newAreas: Area[] = [];
+      for (const a of prev) {
+        if (a.id === area.id) {
+          newAreas.push({ ...a, priority: getNewPriority(a.priority) });
+        } else {
+          newAreas.push(a);
+        }
+      }
+      return newAreas;
     });
   };
 
