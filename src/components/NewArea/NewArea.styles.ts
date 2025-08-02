@@ -12,12 +12,12 @@ export const Form = styled(FormikForm)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 0.5rem;
+  row-gap: 0.25rem;
 
   input {
-    padding: 0.5rem;
+    padding: 0.25rem 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     max-width: 100%;
   }
 `;
@@ -27,14 +27,18 @@ export const Buttons = styled.div`
   column-gap: 0.5rem;
 
   button {
-    border: 1px solid #ccc;
-    border-radius: 4px;
     display: flex;
     padding: 0.25rem;
 
     &:hover {
-      background-color: gray;
       cursor: pointer;
+    }
+
+    &:first-of-type:hover {
+      color: red;
+    }
+    &:last-of-type:hover {
+      color: green;
     }
   }
 `;

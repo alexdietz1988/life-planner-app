@@ -19,7 +19,7 @@ const NewArea = ({
     <div>
       <Formik
         initialValues={{ name: '' }}
-        onSubmit={(values) =>
+        onSubmit={(values) => {
           setLifeAreas((prev) => [
             ...prev,
             {
@@ -29,8 +29,9 @@ const NewArea = ({
               status: 'good',
               priority: 'high',
             },
-          ])
-        }
+          ]);
+          setAddAreaInCategory(null);
+        }}
       >
         <Styled.Form>
           <Field name="name" placeholder="New Area" />
