@@ -25,5 +25,17 @@ export const CategoryLabel = styled.div`
 export const AreasContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
+`;
+
+export const AddAreaButton = styled.button`
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  display: flex;
+  &:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+  }
 `;

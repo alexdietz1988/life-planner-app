@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import * as Styled from './App.styles';
 import { defaultCategories, defaultAreas } from './data';
-import NewAreaForm from './components/NewAreaForm/NewAreaForm.component';
+import NewArea from './components/NewArea/NewArea.component';
 import AreaCompact from './components/AreaCompact/AreaCard.component';
+import { FaPlus } from 'react-icons/fa6';
 
 const App = () => {
   const [lifeAreas, setLifeAreas] = useState(defaultAreas);
@@ -40,12 +41,17 @@ const App = () => {
                 />
               ))}
             {addAreaInCategory === category.id && (
-              <NewAreaForm
+              <NewArea
                 categoryId={addAreaInCategory}
                 setLifeAreas={setLifeAreas}
+                setAddAreaInCategory={setAddAreaInCategory}
               />
             )}
-            <button onClick={() => setAddAreaInCategory(category.id)}>+</button>
+            <Styled.AddAreaButton
+              onClick={() => setAddAreaInCategory(category.id)}
+            >
+              <FaPlus />
+            </Styled.AddAreaButton>
           </Styled.AreasContainer>
         </Styled.Category>
       ))}
