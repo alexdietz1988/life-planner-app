@@ -1,13 +1,13 @@
 import { type Area } from './types';
 
-export const categories = [
+export const defaultCategories = [
   { id: 0, name: 'Relationships' },
   { id: 1, name: 'Health' },
   { id: 2, name: 'Admin' },
   { id: 3, name: 'Personal' },
 ];
 
-export const areas: Area[] = [
+export const defaultAreas: Area[] = [
   { id: 0, category: 0, name: 'Self', status: 'good', priority: 'high' },
   { id: 1, category: 0, name: 'Partner', status: 'good', priority: 'high' },
   { id: 2, category: 0, name: 'Baby', status: 'good', priority: 'high' },
