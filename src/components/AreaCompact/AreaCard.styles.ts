@@ -18,18 +18,26 @@ export const Area = styled.div`
   }
 
   button:hover {
-    cursor: pointer;
     opacity: 0.75;
+    cursor: pointer;
+  }
+
+  &:hover {
+    cursor: default;
+    button:first-of-type {
+      opacity: 1;
+    }
   }
 `;
 
 export const DeleteButton = styled.button`
   position: absolute;
-  opacity: 0.5;
+  opacity: 0;
   top: 0.25rem;
   right: 0.25rem;
 
   &:hover {
     color: red;
+    cursor: pointer;
   }
 `;
