@@ -39,17 +39,16 @@ const App = () => {
                   setLifeAreas={setLifeAreas}
                 />
               ))}
+            {addAreaInCategory === category.id && (
+              <NewAreaForm
+                categoryId={addAreaInCategory}
+                setLifeAreas={setLifeAreas}
+              />
+            )}
             <button onClick={() => setAddAreaInCategory(category.id)}>+</button>
           </Styled.AreasContainer>
         </Styled.Category>
       ))}
-
-      {addAreaInCategory && (
-        <NewAreaForm
-          categoryId={addAreaInCategory}
-          setLifeAreas={setLifeAreas}
-        />
-      )}
     </Styled.Container>
   );
 };

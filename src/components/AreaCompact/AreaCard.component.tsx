@@ -47,8 +47,14 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       ];
     });
   };
+
+  const handleDelete = () => {
+    setLifeAreas((prev) => prev.filter((a) => a.id !== area.id));
+  };
+
   return (
     <Styled.Area key={'area-' + area.id}>
+      <button onClick={handleDelete}>x</button>
       <div>{area.name}</div>
       <div>
         <button onClick={() => handleToggleStatus(area)}>

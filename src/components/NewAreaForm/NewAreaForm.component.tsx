@@ -9,7 +9,6 @@ interface NewAreaFormProps {
 const NewAreaForm = ({ categoryId, setLifeAreas }: NewAreaFormProps) => {
   return (
     <div>
-      <h2>Add New Area in Category {categoryId}</h2>
       <Formik
         initialValues={{ name: '' }}
         onSubmit={(values) =>
