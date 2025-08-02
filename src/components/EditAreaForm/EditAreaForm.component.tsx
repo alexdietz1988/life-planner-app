@@ -1,6 +1,6 @@
-import { type Area, type Priority, type Status } from '../types';
-import GetPriorityIcon from '../GetPriorityIcon';
-import { getStatusLabel } from '../utils';
+import { type Area, type Priority, type Status } from '../../types';
+import GetPriorityIcon from '../../GetPriorityIcon';
+import { getStatusLabel } from '../../utils';
 import * as Styled from './EditAreaForm.styles';
 import { FaCheck } from 'react-icons/fa';
 
