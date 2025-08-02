@@ -42,8 +42,10 @@ const App = () => {
                   onClick={() => setSelectedArea(area)}
                 >
                   <div>{area.name}</div>
-                  <div>{getStatusLabel(area.status)}</div>
-                  <div>{<GetPriorityIcon priority={area.priority} />}</div>
+                  <div>
+                    <div>{getStatusLabel(area.status)}</div>
+                    <div>{<GetPriorityIcon priority={area.priority} />}</div>
+                  </div>
                 </Styled.Area>
               ))}
             <button onClick={() => setAddAreaInCategory(category.id)}>+</button>

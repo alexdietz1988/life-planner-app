@@ -22,7 +22,6 @@ export const Card = styled.div`
   border: 1px solid black;
   border-radius: 0.25rem;
   padding: 0.5rem;
-  min-width: 10rem;
 `;
 
 export const CategoryLabel = styled(Card)`
@@ -32,6 +31,7 @@ export const CategoryLabel = styled(Card)`
   display: flex;
   align-items: center;
   word-break: break-all;
+  min-width: 10rem;
 `;
 
 export const AreasContainer = styled.div`
@@ -42,7 +42,10 @@ export const AreasContainer = styled.div`
 
 export const Area = styled(Card)`
   display: flex;
-  gap: 0.25rem;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.25rem;
+  min-width: 5rem;
 
   &:hover {
     cursor: pointer;
@@ -53,5 +56,6 @@ export const Area = styled(Card)`
   & > * {
     display: flex;
     align-items: center;
+    gap: 0.25rem;
   }
 `;
