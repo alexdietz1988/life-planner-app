@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Area = styled.div`
-  padding: 0.5rem;
+  position: relative;
+  padding: 0.75rem 0.5rem;
   border: 1px solid hsl(0, 0%, 80%);
   border-radius: 0.25rem;
   display: flex;
@@ -19,5 +20,16 @@ export const Area = styled.div`
   button:hover {
     cursor: pointer;
     opacity: 0.75;
+  }
+`;
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  opacity: 0.5;
+  top: 0.25rem;
+  right: 0.25rem;
+
+  &:hover {
+    color: red;
   }
 `;

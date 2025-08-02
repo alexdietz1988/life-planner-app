@@ -2,6 +2,7 @@ import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
 import { getStatusLabel } from '../../utils';
 import GetPriorityIcon from '../../GetPriorityIcon';
+import { CiCircleMinus } from "react-icons/ci";
 
 const getNewStatus = (currentStatus: Status) => {
   switch (currentStatus) {
@@ -54,7 +55,9 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
 
   return (
     <Styled.Area key={'area-' + area.id}>
-      <button onClick={handleDelete}>x</button>
+      <Styled.DeleteButton onClick={handleDelete}>
+        <CiCircleMinus />
+      </Styled.DeleteButton>
       <div>{area.name}</div>
       <div>
         <button onClick={() => handleToggleStatus(area)}>
