@@ -8,21 +8,21 @@ export const defaultCategories = [
 ];
 
 export const defaultAreas: Area[] = [
-  { id: 0, category: 1, name: 'Self', status: 'good', priority: 'high' },
-  { id: 1, category: 1, name: 'Partner', status: 'good', priority: 'high' },
-  { id: 2, category: 1, name: 'Baby', status: 'good', priority: 'high' },
-  { id: 3, category: 1, name: 'Dogs', status: 'good', priority: 'high' },
-  { id: 4, category: 1, name: 'Family', status: 'good', priority: 'high' },
+  { id: 0, category: 1, name: 'Self', status: 'good', priority: 'low' },
+  { id: 1, category: 1, name: 'Partner', status: 'good', priority: 'low' },
+  { id: 2, category: 1, name: 'Baby', status: 'good', priority: 'low' },
+  { id: 3, category: 1, name: 'Dogs', status: 'good', priority: 'low' },
+  { id: 4, category: 1, name: 'Family', status: 'good', priority: 'low' },
 
-  { id: 5, category: 2, name: 'Cardio', status: 'good', priority: 'high' },
-  { id: 6, category: 2, name: 'Strength', status: 'good', priority: 'high' },
+  { id: 5, category: 2, name: 'Cardio', status: 'good', priority: 'low' },
+  { id: 6, category: 2, name: 'Strength', status: 'good', priority: 'low' },
 
-  { id: 7, category: 3, name: 'House', status: 'good', priority: 'high' },
-  { id: 8, category: 3, name: 'Food', status: 'good', priority: 'high' },
-  { id: 9, category: 3, name: 'Events', status: 'good', priority: 'high' },
-  { id: 10, category: 3, name: 'Money', status: 'good', priority: 'high' },
-  { id: 11, category: 3, name: 'Time', status: 'good', priority: 'high' },
+  { id: 7, category: 3, name: 'House', status: 'good', priority: 'low' },
+  { id: 8, category: 3, name: 'Food', status: 'good', priority: 'low' },
+  { id: 9, category: 3, name: 'Events', status: 'good', priority: 'low' },
+  { id: 10, category: 3, name: 'Money', status: 'good', priority: 'low' },
+  { id: 11, category: 3, name: 'Time', status: 'good', priority: 'low' },
 
-  { id: 12, category: 4, name: 'Hobbies', status: 'good', priority: 'high' },
-  { id: 13, category: 4, name: 'Purpose', status: 'good', priority: 'high' },
+  { id: 12, category: 4, name: 'Hobbies', status: 'good', priority: 'low' },
+  { id: 13, category: 4, name: 'Purpose', status: 'good', priority: 'low' },
 ];
