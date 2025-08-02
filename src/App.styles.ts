@@ -11,27 +11,15 @@ export const Container = styled.div`
 
 export const Category = styled.div`
   display: flex;
-  align-items: stretch;
-  gap: 1rem;
-  padding: 0.5rem;
+  flex-direction: column;
+  row-gap: 0.5rem;
   border-radius: 0.25rem;
-  background-color: hsl(0, 0%, 95%);
+  padding: 1rem;
 `;
 
-export const Card = styled.div`
-  border: 1px solid black;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-`;
-
-export const CategoryLabel = styled(Card)`
+export const CategoryLabel = styled.div`
   font-weight: bold;
-  font-size: 1.25rem;
-  border: none;
-  display: flex;
-  align-items: center;
-  word-break: break-all;
-  min-width: 10rem;
+  font-size: 1rem;
 `;
 
 export const AreasContainer = styled.div`
@@ -40,7 +28,10 @@ export const AreasContainer = styled.div`
   gap: 1rem;
 `;
 
-export const Area = styled(Card)`
+export const Area = styled.div`
+  padding: 0.5rem;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
