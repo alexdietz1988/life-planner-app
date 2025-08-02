@@ -45,6 +45,10 @@ const EditAreaForm = ({
     );
   };
   const statusOptions: Status[] = ['good', 'neutral', 'bad'];
+  const handleDelete = () => {
+    setLifeAreas((prev) => prev.filter((a) => a.id !== area.id));
+    setSelectedArea(null);
+  };
   return (
     <Styled.Container>
       <h2>{area.name}</h2>
@@ -64,6 +68,7 @@ const EditAreaForm = ({
           )}
         </Styled.Buttons>
       </Styled.Field>
+      <button onClick={handleDelete}>Delete Area</button>
       <Styled.CloseButton onClick={() => setSelectedArea(null)}>
         <FaCheck />
       </Styled.CloseButton>
