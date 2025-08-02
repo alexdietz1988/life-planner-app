@@ -10,15 +10,14 @@ export const Area = styled.div`
   row-gap: 0.25rem;
   min-width: 5rem;
 
-  &:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-  }
-
   & > * {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+  }
+
+  button:hover {
+    cursor: pointer;
+    opacity: 0.75;
   }
 `;

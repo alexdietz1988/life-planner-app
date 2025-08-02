@@ -51,12 +51,12 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
     <Styled.Area key={'area-' + area.id}>
       <div>{area.name}</div>
       <div>
-        <div onClick={() => handleToggleStatus(area)}>
+        <button onClick={() => handleToggleStatus(area)}>
           {getStatusLabel(area.status)}
-        </div>
-        <div onClick={() => handleTogglePriority(area)}>
+        </button>
+        <button onClick={() => handleTogglePriority(area)}>
           {<GetPriorityIcon priority={area.priority} />}
-        </div>
+        </button>
       </div>
     </Styled.Area>
   );
