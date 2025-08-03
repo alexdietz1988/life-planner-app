@@ -1,12 +1,21 @@
 import { type Area } from './types';
-import heart from './assets/heart.png';
+
 import self from './assets/self.png';
+import heart from './assets/heart.png';
 import babyBottle from './assets/baby-bottle.png';
 import pawPrint from './assets/paw-print.png';
 import family from './assets/family.png';
+
 import sneakers from './assets/sneakers.png';
 import dumbbell from './assets/dumbbell.png';
 import house from './assets/house.png';
+import avocado from './assets/avocado.png';
+import calendar from './assets/calendar.png';
+import cash from './assets/cash.png';
+import hourglass from './assets/hourglass.png';
+
+import paintbrush from './assets/paintbrush.png';
+import mountain from './assets/mountain.png';
 
 export const defaultCategories = [
   { id: 1, name: 'Relationships' },
@@ -82,11 +91,53 @@ export const defaultAreas: Area[] = [
     priority: 'low',
     image: house,
   },
-  { id: 8, category: 3, name: 'Food', status: 'good', priority: 'low' },
-  { id: 9, category: 3, name: 'Events', status: 'good', priority: 'low' },
-  { id: 10, category: 3, name: 'Money', status: 'good', priority: 'low' },
-  { id: 11, category: 3, name: 'Time', status: 'good', priority: 'low' },
+  {
+    id: 8,
+    category: 3,
+    name: 'Food',
+    status: 'good',
+    priority: 'low',
+    image: avocado,
+  },
+  {
+    id: 9,
+    category: 3,
+    name: 'Events',
+    status: 'good',
+    priority: 'low',
+    image: calendar,
+  },
+  {
+    id: 10,
+    category: 3,
+    name: 'Money',
+    status: 'good',
+    priority: 'low',
+    image: cash,
+  },
+  {
+    id: 11,
+    category: 3,
+    name: 'Time',
+    status: 'good',
+    priority: 'low',
+    image: hourglass,
+  },
 
-  { id: 12, category: 4, name: 'Hobbies', status: 'good', priority: 'low' },
-  { id: 13, category: 4, name: 'Purpose', status: 'good', priority: 'low' },
+  {
+    id: 12,
+    category: 4,
+    name: 'Hobbies',
+    status: 'good',
+    priority: 'low',
+    image: paintbrush,
+  },
+  {
+    id: 13,
+    category: 4,
+    name: 'Purpose',
+    status: 'good',
+    priority: 'low',
+    image: mountain,
+  },
 ];

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Area = styled.div`
   position: relative;
@@ -17,6 +17,17 @@ export const Area = styled.div`
       opacity: 1;
     }
   }
+`;
+
+export const AreaLabel = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'alwaysShow',
+})<{ alwaysShow?: boolean }>`
+  ${(props) =>
+    props.alwaysShow
+      ? css``
+      : css`
+          display: none;
+        `}
 `;
 
 export const AreaImage = styled.img`

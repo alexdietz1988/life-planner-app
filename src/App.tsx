@@ -8,7 +8,6 @@ import { FaPlus } from 'react-icons/fa6';
 import Filters from './components/FilterList/FilterList.component.tsx';
 import { defaultFilters } from './utils';
 
-
 const App = () => {
   const [lifeAreas, setLifeAreas] = useState(defaultAreas);
   const [addAreaInCategory, setAddAreaInCategory] = useState<number | null>(
@@ -18,7 +17,6 @@ const App = () => {
 
   useEffect(() => {
     const storedAreas = localStorage.getItem('lifeAreas');
-    console.log(storedAreas);
     if (storedAreas) {
       setLifeAreas(JSON.parse(storedAreas));
     }
