@@ -1,4 +1,5 @@
 import { type Area } from './types';
+import heart from './assets/heart.png';
 
 export const defaultCategories = [
   { id: 1, name: 'Relationships' },
@@ -9,7 +10,14 @@ export const defaultCategories = [
 
 export const defaultAreas: Area[] = [
   { id: 0, category: 1, name: 'Self', status: 'good', priority: 'low' },
-  { id: 1, category: 1, name: 'Partner', status: 'good', priority: 'low' },
+  {
+    id: 1,
+    category: 1,
+    name: 'Partner',
+    status: 'good',
+    priority: 'low',
+    image: heart,
+  },
   { id: 2, category: 1, name: 'Baby', status: 'good', priority: 'low' },
   { id: 3, category: 1, name: 'Dogs', status: 'good', priority: 'low' },
   { id: 4, category: 1, name: 'Family', status: 'good', priority: 'low' },

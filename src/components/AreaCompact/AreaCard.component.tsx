@@ -69,7 +69,8 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       <Styled.DeleteButton onClick={handleDelete}>
         <CiCircleMinus />
       </Styled.DeleteButton>
-      <div>{area.name}</div>
+      {!area.image && <div>{area.name}</div>}
+      {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
       <div>
         <button onClick={() => handleToggleStatus(area)}>
           {getStatusLabel(area.status)}

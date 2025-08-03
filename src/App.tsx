@@ -18,6 +18,7 @@ const App = () => {
 
   useEffect(() => {
     const storedAreas = localStorage.getItem('lifeAreas');
+    console.log(storedAreas);
     if (storedAreas) {
       setLifeAreas(JSON.parse(storedAreas));
     }

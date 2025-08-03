@@ -30,6 +30,10 @@ export const Area = styled.div`
   }
 `;
 
+export const AreaImage = styled.img`
+  width: 2.5rem;
+`;
+
 export const DeleteButton = styled.button`
   position: absolute;
   opacity: 0;

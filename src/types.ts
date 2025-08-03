@@ -7,4 +7,5 @@ export interface Area {
   name: string;
   status: Status;
   priority: Priority;
+  image?: string;
 }
