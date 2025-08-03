@@ -1,13 +1,7 @@
 import { type Priority, type Status } from '../../types';
 import GetPriorityIcon from '../../GetPriorityIcon';
 import * as Styled from './FilterList.styles';
-import {
-  defaultFilters,
-  getStatusLabel,
-  statusOptions,
-  priorityOptions,
-} from '../../utils';
-import { RiResetLeftFill } from 'react-icons/ri';
+import { getStatusLabel, statusOptions, priorityOptions } from '../../utils';
 
 interface FiltersProps {
   filters: {
@@ -58,11 +52,6 @@ const FilterList = ({ filters, setFilters }: FiltersProps) => {
           ))}
         </div>
       </Styled.FilterGroup>
-      {(filters.status !== 'all' || filters.priority !== 'all') && (
-        <Styled.ResetButton onClick={() => setFilters(defaultFilters)}>
-          <RiResetLeftFill />
-        </Styled.ResetButton>
-      )}
     </Styled.Container>
   );
 };

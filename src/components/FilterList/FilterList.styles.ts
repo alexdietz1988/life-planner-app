@@ -41,14 +41,3 @@ export const FilterButton = styled.button<{ selected?: boolean }>`
     opacity: 0.8;
   }
 `;
-
-export const ResetButton = styled.div`
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  display: flex;
-  &:hover {
-    cursor: pointer;
-    background-color: black;
-    color: white;
-  }
-`;
