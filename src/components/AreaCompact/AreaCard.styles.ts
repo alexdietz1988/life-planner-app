@@ -31,7 +31,7 @@ export const AreaLabel = styled.div.withConfig({
 `;
 
 export const AreaImage = styled.img`
-  width: 2.5rem;
+  width: 3rem;
 `;
 
 export const Indicators = styled.div`
@@ -41,6 +41,7 @@ export const Indicators = styled.div`
 
   & > button {
     display: flex;
+    font-size: 1rem;
 
     &:hover {
       opacity: 0.75;

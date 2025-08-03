@@ -1,7 +1,8 @@
 import { type Priority, type Status } from '../../types';
-import GetPriorityIcon from '../../GetPriorityIcon';
+import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
+import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
 import * as Styled from './FilterList.styles';
-import { getStatusLabel, statusOptions, priorityOptions } from '../../utils';
+import { statusOptions, priorityOptions } from '../../utils';
 
 interface FiltersProps {
   filters: {
@@ -35,7 +36,7 @@ const FilterList = ({ filters, setFilters }: FiltersProps) => {
               onClick={() => filterByStatus(status)}
               selected={filters.status === status}
             >
-              {getStatusLabel(status)}
+              <GetStatusIcon status={status} />
             </Styled.FilterButton>
           ))}
         </div>

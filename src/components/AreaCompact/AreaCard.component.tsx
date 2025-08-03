@@ -1,7 +1,7 @@
 import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
-import { getStatusLabel } from '../../utils';
-import GetPriorityIcon from '../../GetPriorityIcon';
+import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
+import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
 import { CiCircleMinus } from 'react-icons/ci';
 
 const getNewStatus = (currentStatus: Status) => {
@@ -73,7 +73,7 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
       <Styled.Indicators>
         <button onClick={() => handleToggleStatus(area)}>
-          {getStatusLabel(area.status)}
+          <GetStatusIcon status={area.status} />
         </button>
         <button onClick={() => handleTogglePriority(area)}>
           {<GetPriorityIcon priority={area.priority} />}

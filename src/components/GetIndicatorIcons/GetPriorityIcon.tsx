@@ -3,9 +3,9 @@ import {
   FcMediumPriority,
   FcLowPriority,
 } from 'react-icons/fc';
-import { type Priority } from './types';
+import { type Priority } from '../../types';
 
-const GetPriorityIcon = ({ priority }: { priority: Priority }) => {
+export const GetPriorityIcon = ({ priority }: { priority: Priority }) => {
   switch (priority) {
     case 'high':
       return <FcHighPriority />;
