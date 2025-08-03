@@ -31,6 +31,7 @@ const FilterList = ({ filters, setFilters }: FiltersProps) => {
         <div>
           {statusOptions.map((status) => (
             <Styled.FilterButton
+              key={status}
               onClick={() => filterByStatus(status)}
               selected={filters.status === status}
             >
@@ -44,6 +45,7 @@ const FilterList = ({ filters, setFilters }: FiltersProps) => {
         <div>
           {priorityOptions.map((priority) => (
             <Styled.FilterButton
+              key={priority}
               onClick={() => filterByPriority(priority)}
               selected={filters.priority === priority}
             >
