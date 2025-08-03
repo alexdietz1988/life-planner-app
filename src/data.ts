@@ -1,5 +1,12 @@
 import { type Area } from './types';
 import heart from './assets/heart.png';
+import self from './assets/self.png';
+import babyBottle from './assets/baby-bottle.png';
+import pawPrint from './assets/paw-print.png';
+import family from './assets/family.png';
+import sneakers from './assets/sneakers.png';
+import dumbbell from './assets/dumbbell.png';
+import house from './assets/house.png';
 
 export const defaultCategories = [
   { id: 1, name: 'Relationships' },
@@ -9,7 +16,14 @@ export const defaultCategories = [
 ];
 
 export const defaultAreas: Area[] = [
-  { id: 0, category: 1, name: 'Self', status: 'good', priority: 'low' },
+  {
+    id: 0,
+    category: 1,
+    name: 'Self',
+    status: 'good',
+    priority: 'low',
+    image: self,
+  },
   {
     id: 1,
     category: 1,
@@ -18,14 +32,56 @@ export const defaultAreas: Area[] = [
     priority: 'low',
     image: heart,
   },
-  { id: 2, category: 1, name: 'Baby', status: 'good', priority: 'low' },
-  { id: 3, category: 1, name: 'Dogs', status: 'good', priority: 'low' },
-  { id: 4, category: 1, name: 'Family', status: 'good', priority: 'low' },
+  {
+    id: 2,
+    category: 1,
+    name: 'Baby',
+    status: 'good',
+    priority: 'low',
+    image: babyBottle,
+  },
+  {
+    id: 3,
+    category: 1,
+    name: 'Dogs',
+    status: 'good',
+    priority: 'low',
+    image: pawPrint,
+  },
+  {
+    id: 4,
+    category: 1,
+    name: 'Family',
+    status: 'good',
+    priority: 'low',
+    image: family,
+  },
 
-  { id: 5, category: 2, name: 'Cardio', status: 'good', priority: 'low' },
-  { id: 6, category: 2, name: 'Strength', status: 'good', priority: 'low' },
+  {
+    id: 5,
+    category: 2,
+    name: 'Cardio',
+    status: 'good',
+    priority: 'low',
+    image: sneakers,
+  },
+  {
+    id: 6,
+    category: 2,
+    name: 'Strength',
+    status: 'good',
+    priority: 'low',
+    image: dumbbell,
+  },
 
-  { id: 7, category: 3, name: 'House', status: 'good', priority: 'low' },
+  {
+    id: 7,
+    category: 3,
+    name: 'House',
+    status: 'good',
+    priority: 'low',
+    image: house,
+  },
   { id: 8, category: 3, name: 'Food', status: 'good', priority: 'low' },
   { id: 9, category: 3, name: 'Events', status: 'good', priority: 'low' },
   { id: 10, category: 3, name: 'Money', status: 'good', priority: 'low' },

@@ -71,14 +71,14 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       </Styled.DeleteButton>
       {!area.image && <div>{area.name}</div>}
       {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
-      <div>
+      <Styled.Indicators>
         <button onClick={() => handleToggleStatus(area)}>
           {getStatusLabel(area.status)}
         </button>
         <button onClick={() => handleTogglePriority(area)}>
           {<GetPriorityIcon priority={area.priority} />}
         </button>
-      </div>
+      </Styled.Indicators>
     </Styled.Area>
   );
 };

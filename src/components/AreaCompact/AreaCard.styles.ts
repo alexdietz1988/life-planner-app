@@ -11,17 +11,6 @@ export const Area = styled.div`
   row-gap: 0.25rem;
   min-width: 5rem;
 
-  & > * {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  button:hover {
-    opacity: 0.75;
-    cursor: pointer;
-  }
-
   &:hover {
     cursor: default;
     button:first-of-type {
@@ -32,6 +21,21 @@ export const Area = styled.div`
 
 export const AreaImage = styled.img`
   width: 2.5rem;
+`;
+
+export const Indicators = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  & > button {
+    display: flex;
+
+    &:hover {
+      opacity: 0.75;
+      cursor: pointer;
+    }
+  }
 `;
 
 export const DeleteButton = styled.button`
