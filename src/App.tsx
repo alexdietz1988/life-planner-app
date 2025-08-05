@@ -31,40 +31,42 @@ const App = () => {
   return (
     <Styled.Container>
       <Filters filters={filters} setFilters={setFilters} />
-      {defaultCategories.map((category) => (
-        <Styled.Category key={'category-' + category.id}>
-          <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
-          <Styled.AreasContainer>
-            {lifeAreas
-              .filter(
-                (area) =>
-                  area.category === category.id &&
-                  (filters.priority === 'all' ||
-                    area.priority === filters.priority) &&
-                  (filters.status === 'all' || area.status === filters.status)
-              )
-              .map((area) => (
-                <AreaCompact
-                  key={'area-' + area.id}
-                  area={area}
+      <Styled.CategoriesContainer>
+        {defaultCategories.map((category) => (
+          <Styled.Category key={'category-' + category.id}>
+            <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
+            <Styled.AreasContainer>
+              {lifeAreas
+                .filter(
+                  (area) =>
+                    area.category === category.id &&
+                    (filters.priority === 'all' ||
+                      area.priority === filters.priority) &&
+                    (filters.status === 'all' || area.status === filters.status)
+                )
+                .map((area) => (
+                  <AreaCompact
+                    key={'area-' + area.id}
+                    area={area}
+                    setLifeAreas={setLifeAreas}
+                  />
+                ))}
+              {addAreaInCategory === category.id && (
+                <NewArea
+                  categoryId={addAreaInCategory}
                   setLifeAreas={setLifeAreas}
+                  setAddAreaInCategory={setAddAreaInCategory}
                 />
-              ))}
-            {addAreaInCategory === category.id && (
-              <NewArea
-                categoryId={addAreaInCategory}
-                setLifeAreas={setLifeAreas}
-                setAddAreaInCategory={setAddAreaInCategory}
-              />
-            )}
-            <Styled.AddAreaButton
-              onClick={() => setAddAreaInCategory(category.id)}
-            >
-              <FaPlus />
-            </Styled.AddAreaButton>
-          </Styled.AreasContainer>
-        </Styled.Category>
-      ))}
+              )}
+              <Styled.AddAreaButton
+                onClick={() => setAddAreaInCategory(category.id)}
+              >
+                <FaPlus />
+              </Styled.AddAreaButton>
+            </Styled.AreasContainer>
+          </Styled.Category>
+        ))}
+      </Styled.CategoriesContainer>
     </Styled.Container>
   );
 };

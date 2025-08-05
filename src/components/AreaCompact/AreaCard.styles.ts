@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Area = styled.div`
   position: relative;
   padding: 0.75rem 0.5rem;
-  border: 1px solid hsl(0, 0%, 80%);
+  border: 1px solid transparent;
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@ export const Area = styled.div`
   min-width: 5rem;
 
   &:hover {
+    border-color: hsl(0, 0%, 80%);
     cursor: default;
     button:first-of-type {
       opacity: 1;
