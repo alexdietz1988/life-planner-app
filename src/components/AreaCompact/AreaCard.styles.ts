@@ -35,7 +35,7 @@ export const AreaImage = styled.img`
   width: 4.15rem;
 `;
 
-export const Indicators = styled.div`
+export const Indicators = styled.div<{ pinned?: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -47,6 +47,14 @@ export const Indicators = styled.div`
     &:hover {
       opacity: 0.75;
       cursor: pointer;
+    }
+
+    &:last-of-type {
+      opacity: ${(props) => (props.pinned ? 1 : 0.3)};
+
+      &:hover {
+        opacity: ${(props) => (props.pinned ? 0.3 : 1)};
+      }
     }
   }
 `;

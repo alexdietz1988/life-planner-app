@@ -3,6 +3,7 @@ import { type Status, type Priority, type Area } from '../../types';
 import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
 import { CiCircleMinus } from 'react-icons/ci';
+import { BsFillPinFill } from 'react-icons/bs';
 
 const getNewStatus = (currentStatus: Status) => {
   switch (currentStatus) {
@@ -60,6 +61,20 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
     });
   };
 
+  const handleTogglePinned = () => {
+    setLifeAreas((prev) => {
+      const newAreas: Area[] = [];
+      for (const a of prev) {
+        if (a.id === area.id) {
+          newAreas.push({ ...a, pinned: !a.pinned });
+        } else {
+          newAreas.push(a);
+        }
+      }
+      return newAreas;
+    });
+  };
+
   const handleDelete = () => {
     setLifeAreas((prev) => prev.filter((a) => a.id !== area.id));
   };
@@ -69,14 +84,18 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       <Styled.DeleteButton onClick={handleDelete}>
         <CiCircleMinus />
       </Styled.DeleteButton>
+
       <Styled.AreaLabel alwaysShow={!area.image}>{area.name}</Styled.AreaLabel>
       {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
-      <Styled.Indicators>
+      <Styled.Indicators pinned={area.pinned}>
         <button onClick={() => handleToggleStatus(area)}>
           <GetStatusIcon status={area.status} />
         </button>
         <button onClick={() => handleTogglePriority(area)}>
           {<GetPriorityIcon priority={area.priority} />}
+        </button>
+        <button onClick={handleTogglePinned}>
+          <BsFillPinFill />
         </button>
       </Styled.Indicators>
     </Styled.Area>
