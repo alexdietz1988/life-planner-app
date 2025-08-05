@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Icon = styled.div<{ status: 'good' | 'bad' | 'neutral' }>`
   width: 1rem;
-  height: 1rem;
+  aspect-ratio: 1;
   border-radius: 50%;
   background-color: ${(props) => {
     if (props.status === 'good') return 'green';

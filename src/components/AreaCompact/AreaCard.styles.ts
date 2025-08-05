@@ -32,7 +32,7 @@ export const AreaLabel = styled.div.withConfig({
 `;
 
 export const AreaImage = styled.img`
-  width: 3rem;
+  width: 4.15rem;
 `;
 
 export const Indicators = styled.div`
