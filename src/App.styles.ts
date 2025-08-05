@@ -14,6 +14,12 @@ export const Category = styled.div`
   flex-direction: column;
   row-gap: 0.5rem;
   border-radius: 0.25rem;
+
+  &:hover {
+    & > div > button {
+      opacity: 1;
+    }
+  }
 `;
 
 export const CategoryLabel = styled.div`
@@ -29,6 +35,7 @@ export const AreasContainer = styled.div`
 `;
 
 export const AddAreaButton = styled.button`
+  opacity: 0;
   border-radius: 0.25rem;
   padding: 0.25rem;
   display: flex;
