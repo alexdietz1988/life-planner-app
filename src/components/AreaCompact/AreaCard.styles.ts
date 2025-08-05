@@ -12,9 +12,9 @@ export const Area = styled.div`
   min-width: 5rem;
 
   &:hover {
-    border-color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 95%);
     cursor: default;
-    button:first-of-type {
+    & > button {
       opacity: 1;
     }
   }
@@ -35,7 +35,7 @@ export const AreaImage = styled.img`
   width: 4.15rem;
 `;
 
-export const Indicators = styled.div<{ pinned?: boolean }>`
+export const Indicators = styled.div`
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -48,14 +48,6 @@ export const Indicators = styled.div<{ pinned?: boolean }>`
       opacity: 0.75;
       cursor: pointer;
     }
-
-    &:last-of-type {
-      opacity: ${(props) => (props.pinned ? 1 : 0.3)};
-
-      &:hover {
-        opacity: ${(props) => (props.pinned ? 0.3 : 1)};
-      }
-    }
   }
 `;
 
@@ -63,10 +55,27 @@ export const DeleteButton = styled.button`
   position: absolute;
   opacity: 0;
   top: 0.25rem;
-  right: 0.25rem;
+  left: 0.25rem;
 
   &:hover {
     color: red;
     cursor: pointer;
+  }
+`;
+
+export const Pin = styled.button<{ pinned?: boolean }>`
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+  opacity: ${(props) => (props.pinned ? 1 : 0)};
+
+  & > * {
+    &:hover {
+      cursor: pointer;
+      color: gray;
+    }
+    &:active {
+      color: black;
+    }
   }
 `;

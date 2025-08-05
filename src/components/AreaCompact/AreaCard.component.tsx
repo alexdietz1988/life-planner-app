@@ -84,18 +84,19 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
       <Styled.DeleteButton onClick={handleDelete}>
         <CiCircleMinus />
       </Styled.DeleteButton>
-
+      <Styled.Pin pinned={area.pinned}>
+        <button onClick={handleTogglePinned}>
+          <BsFillPinFill />
+        </button>
+      </Styled.Pin>
       <Styled.AreaLabel alwaysShow={!area.image}>{area.name}</Styled.AreaLabel>
       {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
-      <Styled.Indicators pinned={area.pinned}>
+      <Styled.Indicators>
         <button onClick={() => handleToggleStatus(area)}>
           <GetStatusIcon status={area.status} />
         </button>
         <button onClick={() => handleTogglePriority(area)}>
           {<GetPriorityIcon priority={area.priority} />}
-        </button>
-        <button onClick={handleTogglePinned}>
-          <BsFillPinFill />
         </button>
       </Styled.Indicators>
     </Styled.Area>
