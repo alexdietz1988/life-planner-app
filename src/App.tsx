@@ -3,7 +3,7 @@ import './App.css';
 import * as Styled from './App.styles';
 import { defaultCategories, defaultAreas } from './data';
 import NewArea from './components/NewArea/NewArea.component';
-import AreaCompact from './components/AreaCompact/AreaCard.component';
+import AreaCompact from './components/AreaCard/AreaCard.component.tsx';
 import { FaPlus } from 'react-icons/fa6';
 import Filters from './components/FilterList/FilterList.component.tsx';
 import { defaultFilters } from './utils';

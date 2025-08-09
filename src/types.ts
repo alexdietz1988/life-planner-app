@@ -10,3 +10,8 @@ export interface Area {
   image?: string;
   pinned?: boolean;
 }
+
+export interface Image {
+  name: string;
+  src: string;
+}

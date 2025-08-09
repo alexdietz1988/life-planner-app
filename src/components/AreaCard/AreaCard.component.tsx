@@ -4,6 +4,7 @@ import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
 import { CiCircleMinus } from 'react-icons/ci';
 import { BsFillPinFill } from 'react-icons/bs';
+import { images } from '../../data';
 
 const getNewStatus = (currentStatus: Status) => {
   switch (currentStatus) {
@@ -25,6 +26,11 @@ const getNewPriority = (currentPriority: Priority) => {
     case 'low':
       return 'high';
   }
+};
+
+const getImageSrc = (imageName: string) => {
+  const image = images.find((img) => img.name === imageName);
+  return image ? image.src : '';
 };
 
 interface AreaCardProps {
@@ -90,7 +96,9 @@ const AreaCard = ({ area, setAreas }: AreaCardProps) => {
         </button>
       </Styled.Pin>
       <Styled.AreaLabel alwaysShow={!area.image}>{area.name}</Styled.AreaLabel>
-      {area.image && <Styled.AreaImage src={area.image} alt={area.name} />}
+      {area.image && (
+        <Styled.AreaImage src={getImageSrc(area.image)} alt={area.name} />
+      )}
       <Styled.Indicators>
         <button onClick={() => handleToggleStatus(area)}>
           <GetStatusIcon status={area.status} />

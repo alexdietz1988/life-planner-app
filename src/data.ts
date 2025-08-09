@@ -1,4 +1,4 @@
-import { type Area } from './types';
+import { type Area, type Image } from './types';
 
 import self from './assets/self.png';
 import heart from './assets/heart.png';
@@ -17,6 +17,23 @@ import hourglass from './assets/hourglass.png';
 import paintbrush from './assets/paintbrush.png';
 import mountain from './assets/mountain.png';
 
+export const images: Image[] = [
+  { name: 'self', src: self },
+  { name: 'heart', src: heart },
+  { name: 'babyBottle', src: babyBottle },
+  { name: 'pawPrint', src: pawPrint },
+  { name: 'family', src: family },
+  { name: 'sneakers', src: sneakers },
+  { name: 'dumbbell', src: dumbbell },
+  { name: 'house', src: house },
+  { name: 'avocado', src: avocado },
+  { name: 'calendar', src: calendar },
+  { name: 'cash', src: cash },
+  { name: 'hourglass', src: hourglass },
+  { name: 'paintbrush', src: paintbrush },
+  { name: 'mountain', src: mountain },
+];
+
 export const defaultCategories = [
   { id: 1, name: 'Relationships' },
   { id: 2, name: 'Health' },
@@ -31,7 +48,7 @@ export const defaultAreas: Area[] = [
     name: 'Self',
     status: 'good',
     priority: 'low',
-    image: self,
+    image: 'self',
   },
   {
     id: 1,
@@ -39,7 +56,7 @@ export const defaultAreas: Area[] = [
     name: 'Partner',
     status: 'good',
     priority: 'low',
-    image: heart,
+    image: 'heart',
   },
   {
     id: 2,
@@ -47,7 +64,7 @@ export const defaultAreas: Area[] = [
     name: 'Baby',
     status: 'good',
     priority: 'low',
-    image: babyBottle,
+    image: 'babyBottle',
   },
   {
     id: 3,
@@ -55,7 +72,7 @@ export const defaultAreas: Area[] = [
     name: 'Dogs',
     status: 'good',
     priority: 'low',
-    image: pawPrint,
+    image: 'pawPrint',
   },
   {
     id: 4,
@@ -63,7 +80,7 @@ export const defaultAreas: Area[] = [
     name: 'Family',
     status: 'good',
     priority: 'low',
-    image: family,
+    image: 'family',
   },
 
   {
@@ -72,7 +89,7 @@ export const defaultAreas: Area[] = [
     name: 'Cardio',
     status: 'good',
     priority: 'low',
-    image: sneakers,
+    image: 'sneakers',
   },
   {
     id: 6,
@@ -80,7 +97,7 @@ export const defaultAreas: Area[] = [
     name: 'Strength',
     status: 'good',
     priority: 'low',
-    image: dumbbell,
+    image: 'dumbbell',
   },
 
   {
@@ -89,7 +106,7 @@ export const defaultAreas: Area[] = [
     name: 'House',
     status: 'good',
     priority: 'low',
-    image: house,
+    image: 'house',
   },
   {
     id: 8,
@@ -97,7 +114,7 @@ export const defaultAreas: Area[] = [
     name: 'Food',
     status: 'good',
     priority: 'low',
-    image: avocado,
+    image: 'avocado',
   },
   {
     id: 9,
@@ -105,7 +122,7 @@ export const defaultAreas: Area[] = [
     name: 'Events',
     status: 'good',
     priority: 'low',
-    image: calendar,
+    image: 'calendar',
   },
   {
     id: 10,
@@ -113,7 +130,7 @@ export const defaultAreas: Area[] = [
     name: 'Money',
     status: 'good',
     priority: 'low',
-    image: cash,
+    image: 'cash',
   },
   {
     id: 11,
@@ -121,7 +138,7 @@ export const defaultAreas: Area[] = [
     name: 'Time',
     status: 'good',
     priority: 'low',
-    image: hourglass,
+    image: 'hourglass',
   },
 
   {
@@ -130,7 +147,7 @@ export const defaultAreas: Area[] = [
     name: 'Hobbies',
     status: 'good',
     priority: 'low',
-    image: paintbrush,
+    image: 'paintbrush',
   },
   {
     id: 13,
@@ -138,6 +155,6 @@ export const defaultAreas: Area[] = [
     name: 'Purpose',
     status: 'good',
     priority: 'low',
-    image: mountain,
+    image: 'mountain',
   },
 ];
