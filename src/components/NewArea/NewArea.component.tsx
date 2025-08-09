@@ -25,43 +25,51 @@ const NewArea = ({
   }, []);
   return (
     <Styled.Container ref={dialogRef} open>
-      <Formik
-        initialValues={{ name: '' }}
-        onSubmit={(values) => {
-          setAreas((prev) => [
-            ...prev,
-            {
-              id: prev.length,
-              category: categoryId,
-              name: values.name,
-              status: 'good',
-              priority: 'high',
-              image: selectedImage || '',
-            },
-          ]);
-          setAddAreaInCategory(null);
-        }}
-      >
-        <Styled.Form>
-          <Field name="name" placeholder="New Area" />
-          <Styled.ImageContainer>
-            {images.map((image) => (
-              <img
-                src={image.src}
-                onClick={() => setSelectedImage(image.name)}
-              />
-            ))}
-          </Styled.ImageContainer>
-          <Styled.Buttons>
-            <button type="button" onClick={() => setAddAreaInCategory(null)}>
-              <MdCancel />
-            </button>
-            <button type="submit">
-              <FaCheck />
-            </button>
-          </Styled.Buttons>
-        </Styled.Form>
-      </Formik>
+      <Styled.FormWrapper>
+        <Formik
+          initialValues={{ name: '' }}
+          onSubmit={(values) => {
+            setAreas((prev) => [
+              ...prev,
+              {
+                id: prev.length,
+                category: categoryId,
+                name: values.name,
+                status: 'good',
+                priority: 'high',
+                image: selectedImage || '',
+              },
+            ]);
+            setAddAreaInCategory(null);
+          }}
+        >
+          <Styled.Form>
+            <h1>New Area</h1>
+            <Field name="name" placeholder="Area Name" />
+            <Styled.ImageField>
+              <h2>Select an Image</h2>
+              <Styled.ImageContainer>
+                {images.map((image) => (
+                  <Styled.Image
+                    key={image.name}
+                    src={image.src}
+                    onClick={() => setSelectedImage(image.name)}
+                    selected={selectedImage === image.name}
+                  />
+                ))}
+              </Styled.ImageContainer>
+            </Styled.ImageField>
+            <Styled.Buttons>
+              <button type="button" onClick={() => setAddAreaInCategory(null)}>
+                <MdCancel />
+              </button>
+              <button type="submit">
+                <FaCheck />
+              </button>
+            </Styled.Buttons>
+          </Styled.Form>
+        </Formik>
+      </Styled.FormWrapper>
     </Styled.Container>
   );
 };

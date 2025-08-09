@@ -15,35 +15,57 @@ export const Container = styled.dialog`
   border: none;
 `;
 
-export const Form = styled(FormikForm)`
-  height: 80%;
-  width: 80%;
+export const FormWrapper = styled.div`
   background-color: white;
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Form = styled(FormikForm)`
+  width: 40rem;
+  background-color: white;
   border-radius: 4px;
-  padding: 0.5rem;
+  padding: 10rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 0.25rem;
+  row-gap: 2rem;
 
   input {
     padding: 0.25rem 0.5rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
-    max-width: 100%;
+    width: 15rem;
   }
+`;
+
+export const ImageField = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0.5rem;
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  max-width: 20rem;
-  img {
-    width: 50px;
-    height: 50px;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
+export const Image = styled.img<{ selected?: boolean }>`
+  width: 50px;
+  height: 50px;
+
+  background-color: ${({ selected }) => (selected ? 'yellow' : 'transparent')};
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ selected }) => !selected && 'hsl(0, 0%, 90%)'};
+    border-radius: 0.25rem;
   }
 `;
 
