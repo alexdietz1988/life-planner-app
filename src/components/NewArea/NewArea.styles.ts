@@ -1,8 +1,22 @@
 import styled from 'styled-components';
 import { Form as FormikForm } from 'formik';
 
-export const Form = styled(FormikForm)`
+export const Container = styled.dialog`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hsl(0, 0%, 0%, 0.5);
+  width: 100%;
   height: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+`;
+
+export const Form = styled(FormikForm)`
+  background-color: white;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 0.5rem;

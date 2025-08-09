@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Formik, Field } from 'formik';
 import { type Area } from '../../types';
 import * as Styled from './NewArea.styles';
@@ -15,8 +16,13 @@ const NewArea = ({
   setAreas,
   setAddAreaInCategory,
 }: NewAreaFormProps) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+  }, []);
   return (
-    <div>
+    <Styled.Container ref={dialogRef} open>
       <Formik
         initialValues={{ name: '' }}
         onSubmit={(values) => {
@@ -45,7 +51,7 @@ const NewArea = ({
           </Styled.Buttons>
         </Styled.Form>
       </Formik>
-    </div>
+    </Styled.Container>
   );
 };
 
