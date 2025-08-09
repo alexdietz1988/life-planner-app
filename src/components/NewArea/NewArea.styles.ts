@@ -16,11 +16,12 @@ export const Container = styled.dialog`
 `;
 
 export const Form = styled(FormikForm)`
+  height: 80%;
+  width: 80%;
   background-color: white;
-  border: 1px solid #ccc;
+  border: 1px solid red;
   border-radius: 4px;
   padding: 0.5rem;
-  width: 7.5rem;
 
   display: flex;
   flex-direction: column;
@@ -33,6 +34,16 @@ export const Form = styled(FormikForm)`
     border: 1px solid #ccc;
     border-radius: 0.25rem;
     max-width: 100%;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 20rem;
+  img {
+    width: 50px;
+    height: 50px;
   }
 `;
 
