@@ -6,13 +6,13 @@ import { MdCancel } from 'react-icons/md';
 
 interface NewAreaFormProps {
   categoryId: number;
-  setLifeAreas: React.Dispatch<React.SetStateAction<Area[]>>;
+  setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
   setAddAreaInCategory: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const NewArea = ({
   categoryId,
-  setLifeAreas,
+  setAreas,
   setAddAreaInCategory,
 }: NewAreaFormProps) => {
   return (
@@ -20,7 +20,7 @@ const NewArea = ({
       <Formik
         initialValues={{ name: '' }}
         onSubmit={(values) => {
-          setLifeAreas((prev) => [
+          setAreas((prev) => [
             ...prev,
             {
               id: prev.length,

@@ -9,24 +9,24 @@ import Filters from './components/FilterList/FilterList.component.tsx';
 import { defaultFilters } from './utils';
 
 const App = () => {
-  const [lifeAreas, setLifeAreas] = useState(defaultAreas);
+  const [areas, setAreas] = useState(defaultAreas);
   const [addAreaInCategory, setAddAreaInCategory] = useState<number | null>(
     null
   );
   const [filters, setFilters] = useState(defaultFilters);
 
   useEffect(() => {
-    const storedAreas = localStorage.getItem('lifeAreas');
+    const storedAreas = localStorage.getItem('areas');
     if (storedAreas) {
-      setLifeAreas(JSON.parse(storedAreas));
+      setAreas(JSON.parse(storedAreas));
     }
   }, []);
 
   useEffect(() => {
-    if (lifeAreas !== defaultAreas) {
-      localStorage.setItem('lifeAreas', JSON.stringify(lifeAreas));
+    if (areas !== defaultAreas) {
+      localStorage.setItem('areas', JSON.stringify(areas));
     }
-  }, [lifeAreas]);
+  }, [areas]);
 
   return (
     <Styled.Container>
@@ -36,7 +36,7 @@ const App = () => {
           <Styled.Category key={'category-' + category.id}>
             <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
             <Styled.AreasContainer>
-              {lifeAreas
+              {areas
                 .filter(
                   (area) =>
                     area.category === category.id &&
@@ -48,13 +48,13 @@ const App = () => {
                   <AreaCompact
                     key={'area-' + area.id}
                     area={area}
-                    setLifeAreas={setLifeAreas}
+                    setAreas={setAreas}
                   />
                 ))}
               {addAreaInCategory === category.id && (
                 <NewArea
                   categoryId={addAreaInCategory}
-                  setLifeAreas={setLifeAreas}
+                  setAreas={setAreas}
                   setAddAreaInCategory={setAddAreaInCategory}
                 />
               )}

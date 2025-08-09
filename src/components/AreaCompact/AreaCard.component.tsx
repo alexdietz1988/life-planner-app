@@ -29,12 +29,12 @@ const getNewPriority = (currentPriority: Priority) => {
 
 interface AreaCardProps {
   area: Area;
-  setLifeAreas: React.Dispatch<React.SetStateAction<Area[]>>;
+  setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
 }
 
-const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
+const AreaCard = ({ area, setAreas }: AreaCardProps) => {
   const handleToggleStatus = (area: Area) => {
-    setLifeAreas((prev) => {
+    setAreas((prev) => {
       const newAreas: Area[] = [];
       for (const a of prev) {
         if (a.id === area.id) {
@@ -48,7 +48,7 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
   };
 
   const handleTogglePriority = (area: Area) => {
-    setLifeAreas((prev) => {
+    setAreas((prev) => {
       const newAreas: Area[] = [];
       for (const a of prev) {
         if (a.id === area.id) {
@@ -62,7 +62,7 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
   };
 
   const handleTogglePinned = () => {
-    setLifeAreas((prev) => {
+    setAreas((prev) => {
       const newAreas: Area[] = [];
       for (const a of prev) {
         if (a.id === area.id) {
@@ -76,7 +76,7 @@ const AreaCard = ({ area, setLifeAreas }: AreaCardProps) => {
   };
 
   const handleDelete = () => {
-    setLifeAreas((prev) => prev.filter((a) => a.id !== area.id));
+    setAreas((prev) => prev.filter((a) => a.id !== area.id));
   };
 
   return (
