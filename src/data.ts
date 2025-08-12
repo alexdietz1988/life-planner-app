@@ -1,4 +1,4 @@
-import { type Area, type Image } from './types';
+import { type Area, type Image, type Category } from './types';
 
 import self from './assets/self.png';
 import heart from './assets/heart.png';
@@ -34,7 +34,7 @@ export const images: Image[] = [
   { name: 'mountain', src: mountain },
 ];
 
-export const defaultCategories = [
+export const defaultCategories: Category[] = [
   { id: 1, name: 'Relationships' },
   { id: 2, name: 'Health' },
   { id: 3, name: 'Admin' },

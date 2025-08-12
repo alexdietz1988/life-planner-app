@@ -1,6 +1,11 @@
 export type Status = 'good' | 'bad' | 'neutral';
 export type Priority = 'high' | 'medium' | 'low';
 
+export interface Category {
+  id: number;
+  name: string;
+}
+
 export interface Area {
   id: number;
   category: number;

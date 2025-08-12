@@ -2,7 +2,7 @@ import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
 import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
-import { CiCircleMinus } from 'react-icons/ci';
+// import { CiCircleMinus } from 'react-icons/ci';
 import { BsFillPinFill } from 'react-icons/bs';
 import { images } from '../../data';
 
@@ -36,9 +36,16 @@ const getImageSrc = (imageName: string) => {
 interface AreaCardProps {
   area: Area;
   setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
+  setShowAreaForm: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedArea: React.Dispatch<React.SetStateAction<Area | null>>;
 }
 
-const AreaCard = ({ area, setAreas }: AreaCardProps) => {
+const AreaCard = ({
+  area,
+  setAreas,
+  setShowAreaForm,
+  setSelectedArea,
+}: AreaCardProps) => {
   const handleToggleStatus = (area: Area) => {
     setAreas((prev) => {
       const newAreas: Area[] = [];
@@ -81,15 +88,23 @@ const AreaCard = ({ area, setAreas }: AreaCardProps) => {
     });
   };
 
-  const handleDelete = () => {
-    setAreas((prev) => prev.filter((a) => a.id !== area.id));
-  };
+  // const handleDelete = () => {
+  //   setAreas((prev) => prev.filter((a) => a.id !== area.id));
+  // };
 
   return (
     <Styled.Area key={'area-' + area.id}>
-      <Styled.DeleteButton onClick={handleDelete}>
+      {/* <Styled.DeleteButton onClick={handleDelete}>
         <CiCircleMinus />
-      </Styled.DeleteButton>
+      </Styled.DeleteButton> */}
+      <div
+        onClick={() => {
+          setShowAreaForm(true);
+          setSelectedArea(area);
+        }}
+      >
+        Edit
+      </div>
       <Styled.Pin pinned={area.pinned}>
         <button onClick={handleTogglePinned}>
           <BsFillPinFill />
