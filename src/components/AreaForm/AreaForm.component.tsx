@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Formik, Field } from 'formik';
 import { type Area, type Category } from '../../types';
 import * as Styled from './AreaForm.styles';
@@ -21,7 +21,6 @@ const AreaForm = ({
   setAreas,
   setShowAreaForm,
 }: AreaFormProps) => {
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(
     selectedArea?.image || null
   );
@@ -36,11 +35,8 @@ const AreaForm = ({
     handleClose();
   };
 
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-  }, []);
   return (
-    <Styled.Container ref={dialogRef} open>
+    <Styled.Container>
       <Styled.FormWrapper>
         <Formik
           initialValues={{

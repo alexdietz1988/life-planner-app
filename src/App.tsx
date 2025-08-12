@@ -45,42 +45,47 @@ const App = () => {
           setShowAreaForm={setShowAreaForm}
         />
       )}
-      <Filters filters={filters} setFilters={setFilters} />
-      <Styled.CategoriesContainer>
-        {categories.map((category) => (
-          <Styled.Category key={'category-' + category.id}>
-            <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
-            <Styled.AreasContainer>
-              {areas
-                .filter(
-                  (area) =>
-                    area.category === category.id &&
-                    (filters.priority === 'all' ||
-                      area.priority === filters.priority) &&
-                    (filters.status === 'all' || area.status === filters.status)
-                )
-                .map((area) => (
-                  <AreaCard
-                    key={'area-' + area.id}
-                    area={area}
-                    setAreas={setAreas}
-                    setShowAreaForm={setShowAreaForm}
-                    setSelectedArea={setSelectedArea}
-                  />
-                ))}
-              <Styled.AddAreaButton
-                onClick={() => {
-                  setSelectedArea(null);
-                  setShowAreaForm(true);
-                  setSelectedCategory(category);
-                }}
-              >
-                <FaPlus />
-              </Styled.AddAreaButton>
-            </Styled.AreasContainer>
-          </Styled.Category>
-        ))}
-      </Styled.CategoriesContainer>
+      {!showAreaForm && (
+        <>
+          <Filters filters={filters} setFilters={setFilters} />
+          <Styled.CategoriesContainer>
+            {categories.map((category) => (
+              <Styled.Category key={'category-' + category.id}>
+                <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
+                <Styled.AreasContainer>
+                  {areas
+                    .filter(
+                      (area) =>
+                        area.category === category.id &&
+                        (filters.priority === 'all' ||
+                          area.priority === filters.priority) &&
+                        (filters.status === 'all' ||
+                          area.status === filters.status)
+                    )
+                    .map((area) => (
+                      <AreaCard
+                        key={'area-' + area.id}
+                        area={area}
+                        setAreas={setAreas}
+                        setShowAreaForm={setShowAreaForm}
+                        setSelectedArea={setSelectedArea}
+                      />
+                    ))}
+                  <Styled.AddAreaButton
+                    onClick={() => {
+                      setSelectedArea(null);
+                      setShowAreaForm(true);
+                      setSelectedCategory(category);
+                    }}
+                  >
+                    <FaPlus />
+                  </Styled.AddAreaButton>
+                </Styled.AreasContainer>
+              </Styled.Category>
+            ))}
+          </Styled.CategoriesContainer>
+        </>
+      )}
     </Styled.Container>
   );
 };
