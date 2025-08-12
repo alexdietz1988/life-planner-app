@@ -68,7 +68,13 @@ const App = () => {
                     setSelectedArea={setSelectedArea}
                   />
                 ))}
-              <Styled.AddAreaButton>
+              <Styled.AddAreaButton
+                onClick={() => {
+                  setSelectedArea(null);
+                  setShowAreaForm(true);
+                  setSelectedCategory(category);
+                }}
+              >
                 <FaPlus />
               </Styled.AddAreaButton>
             </Styled.AreasContainer>

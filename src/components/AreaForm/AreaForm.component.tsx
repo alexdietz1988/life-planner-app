@@ -38,7 +38,6 @@ const AreaForm = ({
             category: selectedCategory?.id || 1,
           }}
           onSubmit={(values) => {
-            console.log('Form submitted with values:', values);
             setAreas((prev: Area[]) => {
               const newArea: Area = {
                 id: selectedArea?.id || prev.length,
@@ -70,10 +69,7 @@ const AreaForm = ({
             <Field name="name" placeholder="Area Name" />
             <Field as="select" name="category">
               {categories.map((category) => (
-                <option
-                  key={category.id}
-                  value={category.id}
-                >
+                <option key={category.id} value={category.id}>
                   {category.name}
                 </option>
               ))}
@@ -93,7 +89,13 @@ const AreaForm = ({
               </Styled.ImageContainer>
             </Styled.ImageField>
             <Styled.Buttons>
-              <button type="button" onClick={() => setShowAreaForm(false)}>
+              <button
+                type="button"
+                onClick={() => {
+                  document.body.style.overflow = 'auto';
+                  setShowAreaForm(false);
+                }}
+              >
                 <MdCancel />
               </button>
               <button type="submit">
