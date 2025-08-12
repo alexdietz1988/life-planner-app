@@ -51,18 +51,6 @@ export const Indicators = styled.div`
   }
 `;
 
-export const DeleteButton = styled.button`
-  position: absolute;
-  opacity: 0;
-  top: 0.25rem;
-  left: 0.25rem;
-
-  &:hover {
-    color: red;
-    cursor: pointer;
-  }
-`;
-
 export const Pin = styled.button<{ pinned?: boolean }>`
   position: absolute;
   right: 0.25rem;

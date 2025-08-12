@@ -26,6 +26,16 @@ const AreaForm = ({
     selectedArea?.image || null
   );
 
+  const handleClose = () => {
+    setShowAreaForm(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const handleDelete = () => {
+    setAreas((prev) => prev.filter((a) => a.id !== selectedArea?.id));
+    handleClose();
+  };
+
   useEffect(() => {
     document.body.style.overflow = 'hidden';
   }, []);
@@ -60,8 +70,7 @@ const AreaForm = ({
               }
               return newAreas;
             });
-            document.body.style.overflow = 'auto';
-            setShowAreaForm(false);
+            handleClose();
           }}
         >
           <Styled.Form>
@@ -89,19 +98,14 @@ const AreaForm = ({
               </Styled.ImageContainer>
             </Styled.ImageField>
             <Styled.Buttons>
-              <button
-                type="button"
-                onClick={() => {
-                  document.body.style.overflow = 'auto';
-                  setShowAreaForm(false);
-                }}
-              >
+              <button type="button" onClick={handleClose}>
                 <MdCancel />
               </button>
               <button type="submit">
                 <FaCheck />
               </button>
             </Styled.Buttons>
+            {selectedArea && <div onClick={handleDelete}>Delete Area</div>}
           </Styled.Form>
         </Formik>
       </Styled.FormWrapper>

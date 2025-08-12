@@ -2,7 +2,6 @@ import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
 import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
-// import { CiCircleMinus } from 'react-icons/ci';
 import { BsFillPinFill } from 'react-icons/bs';
 import { images } from '../../data';
 
@@ -88,15 +87,8 @@ const AreaCard = ({
     });
   };
 
-  // const handleDelete = () => {
-  //   setAreas((prev) => prev.filter((a) => a.id !== area.id));
-  // };
-
   return (
     <Styled.Area key={'area-' + area.id}>
-      {/* <Styled.DeleteButton onClick={handleDelete}>
-        <CiCircleMinus />
-      </Styled.DeleteButton> */}
       <div
         onClick={() => {
           setShowAreaForm(true);
