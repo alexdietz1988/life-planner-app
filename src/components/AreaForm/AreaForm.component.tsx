@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import { Formik, Field } from 'formik';
 import { type Area, type Category } from '../../types';
 import * as Styled from './AreaForm.styles';
-import { FaCheck } from 'react-icons/fa';
-import { MdCancel } from 'react-icons/md';
 import { images } from '../../data';
 
 interface AreaFormProps {
@@ -21,90 +18,88 @@ const AreaForm = ({
   setAreas,
   setShowAreaForm,
 }: AreaFormProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(
-    selectedArea?.image || null
-  );
-
-  const handleClose = () => {
+  const handleSubmit = (values: {
+    name: string;
+    category: number;
+    image: string;
+  }) => {
+    setAreas((prev: Area[]) => {
+      const newArea: Area = {
+        id: selectedArea?.id || prev.length,
+        category: Number(values.category),
+        name: values.name,
+        status: selectedArea?.status || 'good',
+        priority: selectedArea?.priority || 'low',
+        image: values.image || '',
+      };
+      if (!selectedArea) {
+        return [...prev, newArea];
+      }
+      const newAreas: Area[] = [];
+      for (const a of prev) {
+        if (a.id === selectedArea.id) {
+          newAreas.push(newArea);
+        } else {
+          newAreas.push(a);
+        }
+      }
+      return newAreas;
+    });
     setShowAreaForm(false);
-    document.body.style.overflow = 'auto';
   };
 
   const handleDelete = () => {
     setAreas((prev) => prev.filter((a) => a.id !== selectedArea?.id));
-    handleClose();
+    setShowAreaForm(false);
   };
 
   return (
     <Styled.Container>
-      <Styled.FormWrapper>
-        <Formik
-          initialValues={{
-            name: selectedArea?.name || '',
-            category: selectedCategory?.id || 1,
-          }}
-          onSubmit={(values) => {
-            setAreas((prev: Area[]) => {
-              const newArea: Area = {
-                id: selectedArea?.id || prev.length,
-                category: Number(values.category),
-                name: values.name,
-                status: selectedArea?.status || 'good',
-                priority: selectedArea?.priority || 'low',
-                image: selectedImage || '',
-              };
-              if (!selectedArea) {
-                return [...prev, newArea];
-              }
-              const newAreas: Area[] = [];
-              for (const a of prev) {
-                if (a.id === selectedArea.id) {
-                  newAreas.push(newArea);
-                } else {
-                  newAreas.push(a);
-                }
-              }
-              return newAreas;
-            });
-            handleClose();
-          }}
-        >
-          <Styled.Form>
-            <h1>New Area</h1>
+      <Formik
+        initialValues={{
+          name: selectedArea?.name || '',
+          category: selectedCategory?.id || 1,
+          image: selectedArea?.image || '',
+        }}
+        onSubmit={(values) => handleSubmit(values)}
+      >
+        <Styled.Form>
+          <h1>{selectedArea ? 'Edit Area' : 'New Area'}</h1>
+          <Styled.FieldGroup>
+            <label htmlFor="name">Area Name</label>
             <Field name="name" placeholder="Area Name" />
-            <Field as="select" name="category">
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
+          </Styled.FieldGroup>
+          <Styled.FieldGroup>
+            <label htmlFor="category">Category</label>
+            {categories.map((category) => (
+              <label key={category.name}>
+                <Field type="radio" name="category" value={category.id} />
+                {category.name}
+              </label>
+            ))}
+          </Styled.FieldGroup>
+          <Styled.FieldGroup>
+            <label>Image</label>
+            <Styled.ImageContainer>
+              {images.map((image) => (
+                <label key={image.name}>
+                  <Field type="radio" name="image" value={image.name} />
+                  <img src={image.src} />
+                </label>
               ))}
-            </Field>
-
-            <Styled.ImageField>
-              <h2>Select an Image</h2>
-              <Styled.ImageContainer>
-                {images.map((image) => (
-                  <Styled.Image
-                    key={image.name}
-                    src={image.src}
-                    onClick={() => setSelectedImage(image.name)}
-                    selected={selectedImage === image.name}
-                  />
-                ))}
-              </Styled.ImageContainer>
-            </Styled.ImageField>
-            <Styled.Buttons>
-              <button type="button" onClick={handleClose}>
-                <MdCancel />
-              </button>
-              <button type="submit">
-                <FaCheck />
-              </button>
-            </Styled.Buttons>
-            {selectedArea && <div onClick={handleDelete}>Delete Area</div>}
-          </Styled.Form>
-        </Formik>
-      </Styled.FormWrapper>
+            </Styled.ImageContainer>
+          </Styled.FieldGroup>
+          <Styled.Button type="submit" background="green">
+            Save
+          </Styled.Button>
+        </Styled.Form>
+      </Formik>
+      <Styled.SmallButtons>
+        <button type="button" onClick={() => setShowAreaForm(false)}>
+          Cancel
+        </button>
+        {selectedArea && <button onClick={handleDelete}>Delete Area</button>}
+      </Styled.SmallButtons>
     </Styled.Container>
   );
 };

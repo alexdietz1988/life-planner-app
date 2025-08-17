@@ -2,82 +2,61 @@ import styled from 'styled-components';
 import { Form as FormikForm } from 'formik';
 
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const FormWrapper = styled.div`
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 600px;
+  padding: 2rem;
 `;
 
 export const Form = styled(FormikForm)`
-  width: 40rem;
-  background-color: white;
-  border-radius: 4px;
-  padding: 10rem;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  row-gap: 2rem;
-
-  input {
-    padding: 0.25rem 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    width: 15rem;
-  }
+  align-items: start;
+  row-gap: 2.5rem;
+  margin-block-end: 5rem;
 `;
 
-export const ImageField = styled.div`
+export const FieldGroup = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 0.5rem;
+  font-size: 0.9rem;
 `;
 
 export const ImageContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-flow: row wrap;
   gap: 0.5rem;
-`;
 
-export const Image = styled.img<{ selected?: boolean }>`
-  width: 50px;
-  height: 50px;
+  label {
+    display: flex;
+    gap: 0.25rem;
+  }
 
-  background-color: ${({ selected }) => (selected ? 'yellow' : 'transparent')};
-
-  &:hover {
-    cursor: pointer;
-    background-color: ${({ selected }) => !selected && 'hsl(0, 0%, 90%)'};
-    border-radius: 0.25rem;
+  img {
+    width: 50px;
+    height: 50px;
   }
 `;
 
-export const Buttons = styled.div`
+export const Button = styled.button<{ background?: string }>`
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background-color: hsl(120, 100%, 30%);
+  color: white;
+`;
+
+export const SmallButtons = styled.div`
   display: flex;
-  column-gap: 0.5rem;
+  gap: 0.5rem;
+  font-size: 0.75rem;
 
   button {
-    display: flex;
-    padding: 0.25rem;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
 
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:first-of-type:hover {
-      color: red;
-    }
-    &:last-of-type:hover {
-      color: green;
+    &:last-of-type {
+      background-color: hsl(0, 100%, 40%);
+      color: white;
     }
   }
 `;

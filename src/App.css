@@ -10,9 +10,15 @@ button {
   background-color: unset;
   border: unset;
   padding: 0;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
   font-size: unset;
   font-weight: normal;
