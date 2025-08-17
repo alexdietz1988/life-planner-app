@@ -91,14 +91,16 @@ const AreaCard = ({
 
   return (
     <Styled.Area key={'area-' + area.id}>
-      <div
-        onClick={() => {
-          setShowAreaForm(true);
-          setSelectedArea(area);
-        }}
-      >
-        <MdEdit />
-      </div>
+      <Styled.EditButton>
+        <button
+          onClick={() => {
+            setShowAreaForm(true);
+            setSelectedArea(area);
+          }}
+        >
+          <MdEdit />
+        </button>
+      </Styled.EditButton>
       <Styled.Pin pinned={area.pinned}>
         <button onClick={handleTogglePinned}>
           <BsFillPinFill />

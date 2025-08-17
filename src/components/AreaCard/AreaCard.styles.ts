@@ -53,6 +53,14 @@ export const Indicators = styled.div`
 
 export const EditButton = styled.button`
   position: absolute;
+  left: 0.25rem;
+  top: 0.25rem;
+  opacity: 0;
+
+  & > *:hover {
+    cursor: pointer;
+    color: gray;
+  }
 `;
 
 export const Pin = styled.button<{ pinned?: boolean }>`
