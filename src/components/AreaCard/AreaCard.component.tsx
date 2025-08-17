@@ -2,8 +2,10 @@ import * as Styled from './AreaCard.styles';
 import { type Status, type Priority, type Area } from '../../types';
 import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
-import { BsFillPinFill } from 'react-icons/bs';
 import { images } from '../../data';
+
+import { BsFillPinFill } from 'react-icons/bs';
+import { MdEdit } from 'react-icons/md';
 
 const getNewStatus = (currentStatus: Status) => {
   switch (currentStatus) {
@@ -95,7 +97,7 @@ const AreaCard = ({
           setSelectedArea(area);
         }}
       >
-        Edit
+        <MdEdit />
       </div>
       <Styled.Pin pinned={area.pinned}>
         <button onClick={handleTogglePinned}>

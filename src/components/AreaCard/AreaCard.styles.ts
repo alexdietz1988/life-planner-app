@@ -51,6 +51,10 @@ export const Indicators = styled.div`
   }
 `;
 
+export const EditButton = styled.button`
+  position: absolute;
+`;
+
 export const Pin = styled.button<{ pinned?: boolean }>`
   position: absolute;
   right: 0.25rem;
