@@ -34,8 +34,35 @@ export const Category = styled.div`
 `;
 
 export const CategoryLabel = styled.div`
-  text-align: center;
-  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+
+  & > div {
+    cursor: default;
+  }
+
+  & > button {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    & > button {
+      opacity: 1;
+    }
+    & > button:hover {
+      opacity: 0.5;
+    }
+  }
 `;
 
 export const AreasContainer = styled.div`

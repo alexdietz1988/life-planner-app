@@ -80,16 +80,18 @@ const App = () => {
             {categories.map((category) => (
               <Styled.Category key={'category-' + category.id}>
                 <Styled.CategoryLabel>
-                  {category.name}
-                  <MdEdit
-                    onClick={() => {
-                      setShowCategoryForm(true);
-                      setFormPresets({
-                        area: null,
-                        category,
-                      });
-                    }}
-                  />
+                  <div>{category.name}</div>
+                  <button>
+                    <MdEdit
+                      onClick={() => {
+                        setShowCategoryForm(true);
+                        setFormPresets({
+                          area: null,
+                          category,
+                        });
+                      }}
+                    />
+                  </button>
                 </Styled.CategoryLabel>
                 <Styled.AreasContainer>
                   {areas
