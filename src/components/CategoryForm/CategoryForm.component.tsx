@@ -33,22 +33,24 @@ const CategoryForm = ({
   };
   const defaultCategory: Category = { id: categories.length + 1, name: '' };
   return (
-    <Formik
-      initialValues={{
-        name: presetCategory?.name || defaultCategory.name,
-        id: presetCategory?.id || defaultCategory.id,
-      }}
-      onSubmit={(values) => handleSubmit(values)}
-    >
-      <Form>
-        <h1>New Category</h1>
-        <div>
-          <label htmlFor="name">Category Name</label>
-          <Field name="name" placeholder="Category Name" />
-        </div>
-        <button type="submit">Save Category</button>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={{
+          name: presetCategory?.name || defaultCategory.name,
+          id: presetCategory?.id || defaultCategory.id,
+        }}
+        onSubmit={(values) => handleSubmit(values)}
+      >
+        <Form>
+          <h1>New Category</h1>
+          <div>
+            <label htmlFor="name">Category Name</label>
+            <Field name="name" placeholder="Category Name" />
+          </div>
+          <button type="submit">Save Category</button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 

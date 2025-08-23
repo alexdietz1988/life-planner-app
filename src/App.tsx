@@ -9,6 +9,7 @@ import { FaPlus } from 'react-icons/fa6';
 import Filters from './components/FilterList/FilterList.component.tsx';
 import { defaultFilters } from './utils';
 import { type Area, type Category } from './types';
+import { MdEdit } from 'react-icons/md';
 
 const App = () => {
   const [areas, setAreas] = useState(defaultAreas);
@@ -58,6 +59,7 @@ const App = () => {
       {showCategoryForm && (
         <CategoryForm
           categories={categories}
+          presetCategory={areaFormPresets.category || undefined}
           setCategories={setCategories}
           setShowCategoryForm={setShowCategoryForm}
         />
@@ -68,7 +70,18 @@ const App = () => {
           <Styled.CategoriesContainer>
             {categories.map((category) => (
               <Styled.Category key={'category-' + category.id}>
-                <Styled.CategoryLabel>{category.name}</Styled.CategoryLabel>
+                <Styled.CategoryLabel>
+                  {category.name}
+                  <MdEdit
+                    onClick={() => {
+                      setShowCategoryForm(true);
+                      setAreaFormPresets({
+                        area: null,
+                        category,
+                      });
+                    }}
+                  />
+                </Styled.CategoryLabel>
                 <Styled.AreasContainer>
                   {areas
                     .filter(
