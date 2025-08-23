@@ -43,7 +43,7 @@ interface AreaCardProps {
   area: Area;
   setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
   setShowAreaForm: React.Dispatch<React.SetStateAction<boolean>>;
-  setAreaFormPresets: React.Dispatch<
+  setFormPresets: React.Dispatch<
     React.SetStateAction<{
       area: Area | null;
       category: Category | null;
@@ -55,7 +55,7 @@ const AreaCard = ({
   area,
   setAreas,
   setShowAreaForm,
-  setAreaFormPresets,
+  setFormPresets,
 }: AreaCardProps) => {
   const handleToggleStatus = (area: Area) => {
     setAreas((prev) => {
@@ -105,7 +105,7 @@ const AreaCard = ({
         <button
           onClick={() => {
             setShowAreaForm(true);
-            setAreaFormPresets({
+            setFormPresets({
               area,
               category: null,
             });

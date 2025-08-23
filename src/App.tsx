@@ -11,15 +11,16 @@ import { defaultFilters } from './utils';
 import { type Area, type Category } from './types';
 import { MdEdit } from 'react-icons/md';
 
+const defaultFormPresets = {
+  area: null as Area | null,
+  category: null as Category | null,
+};
+
 const App = () => {
   const [areas, setAreas] = useState(defaultAreas);
   const [categories, setCategories] = useState<Category[]>(defaultCategories);
-  const [areaFormPresets, setAreaFormPresets] = useState({
-    area: null as Area | null,
-    category: null as Category | null,
-  });
+  const [formPresets, setFormPresets] = useState(defaultFormPresets);
 
-  console.log(categories);
   const [showAreaForm, setShowAreaForm] = useState(false);
   const [showCategoryForm, setShowCategoryForm] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -30,13 +31,21 @@ const App = () => {
     if (storedAreas) {
       setAreas(JSON.parse(storedAreas));
     }
+    const storedCategories = localStorage.getItem('categories');
+    if (storedCategories) {
+      setCategories(JSON.parse(storedCategories));
+    }
   }, []);
 
   useEffect(() => {
+    setFormPresets(defaultFormPresets);
     if (areas !== defaultAreas) {
       localStorage.setItem('areas', JSON.stringify(areas));
     }
-  }, [areas]);
+    if (categories !== defaultCategories) {
+      localStorage.setItem('categories', JSON.stringify(categories));
+    }
+  }, [areas, categories]);
 
   useEffect(() => {
     if (reset) {
@@ -50,7 +59,7 @@ const App = () => {
     <Styled.Container>
       {showAreaForm && (
         <AreaForm
-          areaFormPresets={areaFormPresets}
+          areaFormPresets={formPresets}
           categories={categories}
           setAreas={setAreas}
           setShowAreaForm={setShowAreaForm}
@@ -59,7 +68,7 @@ const App = () => {
       {showCategoryForm && (
         <CategoryForm
           categories={categories}
-          presetCategory={areaFormPresets.category || undefined}
+          presetCategory={formPresets.category || undefined}
           setCategories={setCategories}
           setShowCategoryForm={setShowCategoryForm}
         />
@@ -75,7 +84,7 @@ const App = () => {
                   <MdEdit
                     onClick={() => {
                       setShowCategoryForm(true);
-                      setAreaFormPresets({
+                      setFormPresets({
                         area: null,
                         category,
                       });
@@ -98,13 +107,13 @@ const App = () => {
                         area={area}
                         setAreas={setAreas}
                         setShowAreaForm={setShowAreaForm}
-                        setAreaFormPresets={setAreaFormPresets}
+                        setFormPresets={setFormPresets}
                       />
                     ))}
                   <Styled.AddAreaButton
                     onClick={() => {
                       setShowAreaForm(true);
-                      setAreaFormPresets({
+                      setFormPresets({
                         area: null,
                         category,
                       });
