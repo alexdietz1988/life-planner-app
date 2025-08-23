@@ -20,15 +20,20 @@ const CategoryForm = ({
         return [...prev, newCategory];
       }
       const newCategories: Category[] = [];
-      for (const category of prev) {
-        if (category.id === newCategory.id) {
+      for (const c of prev) {
+        if (c.id === newCategory.id) {
           newCategories.push(newCategory);
         } else {
-          newCategories.push(category);
+          newCategories.push(c);
         }
       }
       return newCategories;
     });
+    setShowCategoryForm(false);
+  };
+
+  const handleDelete = () => {
+    setCategories((prev) => prev.filter((c) => c.id !== presetCategory?.id));
     setShowCategoryForm(false);
   };
   const defaultCategory: Category = { id: categories.length + 1, name: '' };
@@ -50,6 +55,7 @@ const CategoryForm = ({
           <button type="submit">Save Category</button>
         </Form>
       </Formik>
+      <button onClick={handleDelete}>Delete Category</button>
     </>
   );
 };
