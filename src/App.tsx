@@ -19,6 +19,7 @@ const App = () => {
 
   const [showAreaForm, setShowAreaForm] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
     const storedAreas = localStorage.getItem('areas');
@@ -32,6 +33,14 @@ const App = () => {
       localStorage.setItem('areas', JSON.stringify(areas));
     }
   }, [areas]);
+
+  useEffect(() => {
+    if (reset) {
+      localStorage.removeItem('areas');
+      setAreas(defaultAreas);
+      setReset(false);
+    }
+  }, [reset]);
 
   return (
     <Styled.Container>
@@ -86,6 +95,7 @@ const App = () => {
           </Styled.CategoriesContainer>
         </>
       )}
+      <button onClick={() => setReset(true)}>Reset</button>
     </Styled.Container>
   );
 };
