@@ -1,5 +1,10 @@
 import * as Styled from './AreaCard.styles';
-import { type Status, type Priority, type Area } from '../../types';
+import {
+  type Status,
+  type Priority,
+  type Area,
+  type Category,
+} from '../../types';
 import GetPriorityIcon from '../GetIndicatorIcons/GetPriorityIcon';
 import GetStatusIcon from '../GetIndicatorIcons/GetStatusIcon';
 import { images } from '../../data';
@@ -38,14 +43,19 @@ interface AreaCardProps {
   area: Area;
   setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
   setShowAreaForm: React.Dispatch<React.SetStateAction<boolean>>;
-  setSelectedArea: React.Dispatch<React.SetStateAction<Area | null>>;
+  setAreaFormPresets: React.Dispatch<
+    React.SetStateAction<{
+      area: Area | null;
+      category: Category | null;
+    }>
+  >;
 }
 
 const AreaCard = ({
   area,
   setAreas,
   setShowAreaForm,
-  setSelectedArea,
+  setAreaFormPresets,
 }: AreaCardProps) => {
   const handleToggleStatus = (area: Area) => {
     setAreas((prev) => {
@@ -95,7 +105,10 @@ const AreaCard = ({
         <button
           onClick={() => {
             setShowAreaForm(true);
-            setSelectedArea(area);
+            setAreaFormPresets({
+              area,
+              category: null,
+            });
           }}
         >
           <MdEdit />

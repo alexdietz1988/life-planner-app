@@ -4,29 +4,32 @@ import * as Styled from './AreaForm.styles';
 import { images } from '../../data';
 
 interface AreaFormProps {
-  selectedArea?: Area | null;
-  selectedCategory?: Category | null;
+  areaFormPresets: {
+    area: Area | null;
+    category: Category | null;
+  };
   categories: Category[];
   setAreas: React.Dispatch<React.SetStateAction<Area[]>>;
   setShowAreaForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AreaForm = ({
-  selectedArea,
-  selectedCategory,
+  areaFormPresets,
   categories,
   setAreas,
   setShowAreaForm,
 }: AreaFormProps) => {
+  const selectedArea = areaFormPresets.area;
+
   const handleSubmit = (values: {
     name: string;
-    category: number;
+    categoryId: string;
     image: string;
   }) => {
     setAreas((prev: Area[]) => {
       const newArea: Area = {
         id: selectedArea?.id || prev.length,
-        category: Number(values.category),
+        category: parseInt(values.categoryId),
         name: values.name,
         status: selectedArea?.status || 'good',
         priority: selectedArea?.priority || 'low',
@@ -58,7 +61,8 @@ const AreaForm = ({
       <Formik
         initialValues={{
           name: selectedArea?.name || '',
-          category: selectedCategory?.id || 1,
+          categoryId:
+            selectedArea?.category.toString() || categories[0].id.toString(),
           image: selectedArea?.image || '',
         }}
         onSubmit={(values) => handleSubmit(values)}
@@ -70,10 +74,14 @@ const AreaForm = ({
             <Field name="name" placeholder="Area Name" />
           </Styled.FieldGroup>
           <Styled.FieldGroup>
-            <label htmlFor="category">Category</label>
+            <label htmlFor="categoryId">Category</label>
             {categories.map((category) => (
               <label key={category.name}>
-                <Field type="radio" name="category" value={category.id} />
+                <Field
+                  type="radio"
+                  name="categoryId"
+                  value={category.id.toString()}
+                />
                 {category.name}
               </label>
             ))}

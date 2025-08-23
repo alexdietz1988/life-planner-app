@@ -12,11 +12,10 @@ import { type Area, type Category } from './types';
 const App = () => {
   const [areas, setAreas] = useState(defaultAreas);
   const [categories, setCategories] = useState<Category[]>(defaultCategories);
-
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
-  );
-  const [selectedArea, setSelectedArea] = useState<Area | null>(null);
+  const [areaFormPresets, setAreaFormPresets] = useState({
+    area: null as Area | null,
+    category: null as Category | null,
+  });
 
   const [showAreaForm, setShowAreaForm] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
@@ -38,8 +37,7 @@ const App = () => {
     <Styled.Container>
       {showAreaForm && (
         <AreaForm
-          selectedArea={selectedArea}
-          selectedCategory={selectedCategory}
+          areaFormPresets={areaFormPresets}
           categories={categories}
           setAreas={setAreas}
           setShowAreaForm={setShowAreaForm}
@@ -68,14 +66,16 @@ const App = () => {
                         area={area}
                         setAreas={setAreas}
                         setShowAreaForm={setShowAreaForm}
-                        setSelectedArea={setSelectedArea}
+                        setAreaFormPresets={setAreaFormPresets}
                       />
                     ))}
                   <Styled.AddAreaButton
                     onClick={() => {
-                      setSelectedArea(null);
                       setShowAreaForm(true);
-                      setSelectedCategory(category);
+                      setAreaFormPresets({
+                        area: null,
+                        category,
+                      });
                     }}
                   >
                     <FaPlus />
