@@ -3,6 +3,7 @@ import './App.css';
 import * as Styled from './App.styles';
 import { defaultCategories, defaultAreas } from './data';
 import AreaForm from './components/AreaForm/AreaForm.component.tsx';
+import CategoryForm from './components/CategoryForm/CategoryForm.component.tsx';
 import AreaCard from './components/AreaCard/AreaCard.component.tsx';
 import { FaPlus } from 'react-icons/fa6';
 import Filters from './components/FilterList/FilterList.component.tsx';
@@ -17,7 +18,9 @@ const App = () => {
     category: null as Category | null,
   });
 
+  console.log(categories);
   const [showAreaForm, setShowAreaForm] = useState(false);
+  const [showCategoryForm, setShowCategoryForm] = useState(false);
   const [filters, setFilters] = useState(defaultFilters);
   const [reset, setReset] = useState(false);
 
@@ -52,7 +55,14 @@ const App = () => {
           setShowAreaForm={setShowAreaForm}
         />
       )}
-      {!showAreaForm && (
+      {showCategoryForm && (
+        <CategoryForm
+          categories={categories}
+          setCategories={setCategories}
+          setShowCategoryForm={setShowCategoryForm}
+        />
+      )}
+      {!showAreaForm && !showCategoryForm && (
         <>
           <Filters filters={filters} setFilters={setFilters} />
           <Styled.CategoriesContainer>
@@ -95,6 +105,7 @@ const App = () => {
           </Styled.CategoriesContainer>
         </>
       )}
+      <button onClick={() => setShowCategoryForm(true)}>Add Category</button>
       <button onClick={() => setReset(true)}>Reset</button>
     </Styled.Container>
   );
