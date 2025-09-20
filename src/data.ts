@@ -16,6 +16,8 @@ import hourglass from './assets/hourglass.png';
 
 import paintbrush from './assets/paintbrush.png';
 import mountain from './assets/mountain.png';
+import friends from './assets/friends.png';
+import tree from './assets/tree.png';
 
 export const images: Image[] = [
   { name: 'self', src: self },
@@ -32,6 +34,8 @@ export const images: Image[] = [
   { name: 'hourglass', src: hourglass },
   { name: 'paintbrush', src: paintbrush },
   { name: 'mountain', src: mountain },
+  { name: 'friends', src: friends },
+  { name: 'tree', src: tree },
 ];
 
 export const defaultCategories: Category[] = [
