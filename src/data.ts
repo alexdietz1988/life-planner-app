@@ -18,6 +18,7 @@ import paintbrush from './assets/paintbrush.png';
 import mountain from './assets/mountain.png';
 import friends from './assets/friends.png';
 import tree from './assets/tree.png';
+import book from './assets/book.png';
 
 export const images: Image[] = [
   { name: 'self', src: self },
@@ -36,6 +37,7 @@ export const images: Image[] = [
   { name: 'mountain', src: mountain },
   { name: 'friends', src: friends },
   { name: 'tree', src: tree },
+  { name: 'book', src: book },
 ];
 
 export const defaultCategories: Category[] = [
