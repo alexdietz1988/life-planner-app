@@ -19,6 +19,11 @@ import mountain from './assets/mountain.png';
 import friends from './assets/friends.png';
 import tree from './assets/tree.png';
 import book from './assets/book.png';
+import briefcase from './assets/briefcase.png';
+import headphones from './assets/headphones.png';
+import laptop from './assets/laptop.png';
+import pen from './assets/pen.png';
+import sapling from './assets/sapling.png';
 
 export const images: Image[] = [
   { name: 'self', src: self },
@@ -38,6 +43,11 @@ export const images: Image[] = [
   { name: 'friends', src: friends },
   { name: 'tree', src: tree },
   { name: 'book', src: book },
+  { name: 'briefcase', src: briefcase },
+  { name: 'headphones', src: headphones },
+  { name: 'laptop', src: laptop },
+  { name: 'pen', src: pen },
+  { name: 'sapling', src: sapling },
 ];
 
 export const defaultCategories: Category[] = [
